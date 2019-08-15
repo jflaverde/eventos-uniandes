@@ -5,7 +5,7 @@ from django.db.models import Q
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categoria
-        fields = ('id','nombre_categoria')
+        fields = ('id','nombre')
 
 class EventoSerializer(serializers.ModelSerializer):
     class Meta:
