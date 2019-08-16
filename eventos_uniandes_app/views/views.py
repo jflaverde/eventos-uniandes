@@ -195,7 +195,7 @@ def postUser(request):
     if request.method == 'POST':
         user_model = None
         try:
-            json_evento = json.loads(request.body.decode('utf-8'))
+            json_user = json.loads(request.body.decode('utf-8'))
             username = json_user['username']
             password = json_user['password']
             first_name = json_user['first_name']
