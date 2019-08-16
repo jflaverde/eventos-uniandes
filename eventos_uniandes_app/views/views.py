@@ -86,12 +86,14 @@ def delete_evento(request,idEvento):
 
 
 @csrf_exempt
+@api_view(["PUT"])
+@permission_classes((AllowAny,))
 def updateEvento(request, idEvento):
     if request.method == 'PUT':
         evento = Evento.objects.get(id=idEvento);
         print(evento)
         try:
-            json_evento = json.loads(request.body)
+            json_evento = json.loads(request.body.decode('utf-8'))
             if (json_evento['categoria'] != None):
                 print('entro')
                 categoria = Categoria.objects.get(id=json_evento['categoria'])
@@ -193,7 +195,7 @@ def postUser(request):
     if request.method == 'POST':
         user_model = None
         try:
-            json_user = json.loads(request.body)
+            json_evento = json.loads(request.body.decode('utf-8'))
             username = json_user['username']
             password = json_user['password']
             first_name = json_user['first_name']
