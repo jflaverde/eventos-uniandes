@@ -11,7 +11,7 @@ class Categoria(models.Model):
 
 #Clase Evento
 class Evento(models.Model):
-    nombre = models.CharField(unique=True, max_length=50)
+    nombre = models.CharField(max_length=100)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='id_categoria')
     lugar = models.CharField(max_length=100)
     direccion = models.CharField(max_length=100)
